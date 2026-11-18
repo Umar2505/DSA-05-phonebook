@@ -40,7 +40,10 @@ public class Person implements Comparable<Person> {
     @Override
     public int hashCode() {
         int hash = 5381;
-        // Implement hash function here.
+        String name = getFullName();
+        for (int index = 0; index < name.length(); index++) {
+            hash = ((hash << 5) + hash) + name.charAt(index);
+        }
         return hash;
     }
 
